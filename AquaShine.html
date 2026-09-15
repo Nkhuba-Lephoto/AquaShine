@@ -1,0 +1,1382 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AquaShine Car Wash</title>
+
+    <style>
+
+        /* =========================
+           GENERAL STYLING
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #17202a;
+            line-height: 1.6;
+            background: white;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        section {
+            padding: 80px 8%;
+        }
+
+
+        /* =========================
+           NAVIGATION
+        ========================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.97);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .navbar {
+            min-height: 75px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 8%;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+            color: #102a43;
+        }
+
+        .logo span {
+            color: #00a8e8;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #17202a;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #00a8e8;
+        }
+
+
+        /* =========================
+           HERO SECTION
+        ========================== */
+
+        .hero {
+            min-height: 100vh;
+            padding: 120px 8% 80px;
+
+            display: flex;
+            align-items: center;
+
+            background:
+                linear-gradient(
+                    rgba(0, 42, 70, 0.82),
+                    rgba(0, 42, 70, 0.82)
+                ),
+                url("https://images.unsplash.com/photo-1605164599901-7b4c7f2b1d4c?auto=format&fit=crop&w=1600&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 680px;
+        }
+
+        .small-title,
+        .section-title {
+            color: #00c6ff;
+            font-weight: bold;
+            letter-spacing: 2px;
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 {
+            font-size: 55px;
+            line-height: 1.15;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 span {
+            color: #00c6ff;
+        }
+
+        .hero p {
+            font-size: 18px;
+            max-width: 600px;
+            margin-bottom: 30px;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================== */
+
+        .btn {
+            display: inline-block;
+            background: #00a8e8;
+            color: white;
+            padding: 13px 28px;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #0077a8;
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           ABOUT SECTION
+        ========================== */
+
+        .about {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-image {
+            height: 450px;
+        }
+
+        .image-placeholder {
+            width: 100%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    rgba(0, 168, 232, 0.15),
+                    rgba(0, 168, 232, 0.15)
+                ),
+                url("https://images.unsplash.com/photo-1552930294-6b595f4c2974?auto=format&fit=crop&w=900&q=80");
+
+            background-size: cover;
+            background-position: center;
+
+            border-radius: 15px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-end;
+
+            padding-bottom: 25px;
+            color: white;
+            text-shadow: 0 2px 5px black;
+        }
+
+        .image-placeholder p {
+            display: none;
+        }
+
+        .image-placeholder span {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .about-content h2,
+        .section-heading h2 {
+            font-size: 40px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .about-content h2 span,
+        .section-heading h2 span {
+            color: #00a8e8;
+        }
+
+        .about-content > p {
+            color: #59636e;
+            margin-bottom: 15px;
+        }
+
+
+        /* =========================
+           BENEFITS
+        ========================== */
+
+        .benefits {
+            margin-top: 25px;
+        }
+
+        .benefit {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 18px;
+        }
+
+        .icon {
+            min-width: 45px;
+            height: 45px;
+
+            border-radius: 50%;
+            background: #e8f7fc;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-size: 21px;
+        }
+
+        .benefit h3 {
+            margin-bottom: 2px;
+        }
+
+        .benefit p {
+            color: #68737d;
+        }
+
+
+        /* =========================
+           SERVICES
+        ========================== */
+
+        .services {
+            background: #f5fafc;
+        }
+
+        .section-heading {
+            text-align: center;
+            max-width: 650px;
+            margin: 0 auto 45px;
+        }
+
+        .section-heading > p:last-child {
+            color: #66727c;
+        }
+
+        .service-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .service-card {
+            background: white;
+            padding: 35px;
+
+            text-align: center;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.07);
+
+            transition: 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .service-card.featured {
+            border-top: 5px solid #00a8e8;
+        }
+
+        .service-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .service-card p {
+            color: #68737d;
+            margin-bottom: 20px;
+        }
+
+        .card-btn {
+            color: #00a8e8;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           HOW IT WORKS
+        ========================== */
+
+        .how-it-works {
+            text-align: center;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 35px;
+
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .step {
+            padding: 20px;
+        }
+
+        .step-number {
+            font-size: 35px;
+            font-weight: bold;
+            color: #00a8e8;
+            margin-bottom: 10px;
+        }
+
+        .step h3 {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            color: #68737d;
+        }
+
+
+        /* =========================
+           PRICING
+        ========================== */
+
+        .pricing {
+            background: #f5fafc;
+        }
+
+        .price-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .price-card {
+            background: white;
+
+            width: 300px;
+
+            padding: 35px;
+
+            text-align: center;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 5px 20px rgba(0, 0, 0, 0.08);
+
+            position: relative;
+        }
+
+        .price-card.popular {
+            border: 3px solid #00a8e8;
+        }
+
+        .price-card h3 {
+            font-size: 22px;
+        }
+
+        .price {
+            font-size: 42px;
+            font-weight: bold;
+            color: #00a8e8;
+            margin: 15px 0;
+        }
+
+        .price-card p {
+            margin-bottom: 8px;
+            color: #66727c;
+        }
+
+        .price-card .btn {
+            margin-top: 20px;
+        }
+
+        .popular-label {
+            position: absolute;
+
+            top: -14px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            background: #00a8e8;
+            color: white;
+
+            padding: 5px 15px;
+
+            border-radius: 20px;
+
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+
+        /* =========================
+           CALL TO ACTION
+        ========================== */
+
+        .cta {
+            background: #062b40;
+            color: white;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: 42px;
+            max-width: 700px;
+
+            margin:
+                0 auto 15px;
+        }
+
+        .cta h2 span {
+            color: #00c6ff;
+        }
+
+        .cta p {
+            margin-bottom: 25px;
+        }
+
+        .white-btn {
+            background: white;
+            color: #062b40;
+        }
+
+        .white-btn:hover {
+            background: #00a8e8;
+            color: white;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        .contact-container {
+            max-width: 1000px;
+
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            gap: 50px;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+
+            background: #e8f7fc;
+
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 22px;
+        }
+
+        .contact-item h3 {
+            margin-bottom: 2px;
+        }
+
+        .contact-item p {
+            color: #68737d;
+        }
+
+        .booking-box {
+            background: #f5fafc;
+
+            padding: 40px;
+
+            border-radius: 15px;
+
+            text-align: center;
+        }
+
+        .booking-box h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .booking-box p {
+            color: #68737d;
+            margin-bottom: 25px;
+        }
+
+        .whatsapp-btn {
+            display: inline-block;
+
+            background: #25d366;
+            color: white;
+
+            padding: 14px 25px;
+
+            border-radius: 6px;
+
+            font-weight: bold;
+        }
+
+        .whatsapp-btn:hover {
+            background: #1da851;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: #041c2b;
+            color: white;
+
+            text-align: center;
+
+            padding: 35px 20px;
+        }
+
+        .footer-logo {
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .footer-logo span {
+            color: #00a8e8;
+        }
+
+        footer p {
+            color: #aebbc3;
+            margin-top: 8px;
+        }
+
+        .copyright {
+            font-size: 13px;
+            margin-top: 20px;
+        }
+
+
+        /* =========================
+           RESPONSIVE DESIGN
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                gap: 15px;
+            }
+
+            .hero h1 {
+                font-size: 45px;
+            }
+
+            .about {
+                grid-template-columns: 1fr;
+            }
+
+            .service-container {
+                grid-template-columns: 1fr;
+            }
+
+            .steps {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .navbar {
+                padding: 15px 5%;
+
+                flex-direction: column;
+
+                gap: 10px;
+            }
+
+            .nav-links {
+                gap: 12px;
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+            }
+
+            .hero {
+                padding:
+                    130px 6% 60px;
+            }
+
+            .hero h1 {
+                font-size: 38px;
+            }
+
+            section {
+                padding: 60px 6%;
+            }
+
+            .about-image {
+                height: 300px;
+            }
+
+            .about-content h2,
+            .section-heading h2 {
+                font-size: 32px;
+            }
+
+            .cta h2 {
+                font-size: 32px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                <span>Aqua</span>Shine
+            </div>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#services">Services</a>
+                </li>
+
+                <li>
+                    <a href="#pricing">Pricing</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section id="home" class="hero">
+
+        <div class="hero-content">
+
+            <p class="small-title">
+                WELCOME TO AQUASHINE
+            </p>
+
+            <h1>
+                A Clean Car
+                <br>
+
+                <span>
+                    Without Wasting Your Time.
+                </span>
+            </h1>
+
+            <p>
+                Convenient, affordable and reliable car washing
+                for busy students, lecturers and vehicle owners.
+            </p>
+
+            <a href="#contact" class="btn">
+                Book Your Wash
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section id="about" class="about">
+
+
+        <div class="about-image">
+
+            <div class="image-placeholder">
+
+                <span>
+                    AQUASHINE CAR WASH
+                </span>
+
+            </div>
+
+        </div>
+
+
+
+        <div class="about-content">
+
+            <p class="section-title">
+                WHY AQUASHINE?
+            </p>
+
+            <h2>
+                We Make Car Washing
+                <span>Simple.</span>
+            </h2>
+
+            <p>
+                We understand that students, lecturers and other
+                busy customers do not always have time to spend
+                hours at a traditional car wash.
+            </p>
+
+            <p>
+                AquaShine provides a convenient and affordable way
+                to keep your vehicle clean while helping you save
+                valuable time.
+            </p>
+
+
+            <div class="benefits">
+
+
+                <div class="benefit">
+
+                    <div class="icon">
+                        ⏱
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Save Time
+                        </h3>
+
+                        <p>
+                            Spend less time waiting for your
+                            car to be cleaned.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="benefit">
+
+                    <div class="icon">
+                        💰
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Affordable
+                        </h3>
+
+                        <p>
+                            Quality car washing at
+                            student-friendly prices.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="benefit">
+
+                    <div class="icon">
+                        💧
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Water Conscious
+                        </h3>
+
+                        <p>
+                            We focus on responsible water usage
+                            while cleaning.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SERVICES
+    ========================== -->
+
+    <section id="services" class="services">
+
+
+        <div class="section-heading">
+
+            <p class="section-title">
+                WHAT WE OFFER
+            </p>
+
+            <h2>
+                Our
+                <span>Services</span>
+            </h2>
+
+            <p>
+                Simple and reliable cleaning services
+                for your vehicle.
+            </p>
+
+        </div>
+
+
+
+        <div class="service-container">
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🚿
+                </div>
+
+                <h3>
+                    Basic Car Wash
+                </h3>
+
+                <p>
+                    A quick and affordable exterior wash
+                    to remove dirt and dust from your vehicle.
+                </p>
+
+            </div>
+
+
+
+            <div class="service-card featured">
+
+                <div class="service-icon">
+                    ✨
+                </div>
+
+                <h3>
+                    Full Car Wash
+                </h3>
+
+                <p>
+                    A complete cleaning service for customers
+                    who want their vehicle looking fresh and clean.
+                </p>
+
+                <a href="#contact" class="card-btn">
+                    Book Now →
+                </a>
+
+            </div>
+
+
+
+            <div class="service-card">
+
+                <div class="service-icon">
+                    🧽
+                </div>
+
+                <h3>
+                    Interior Cleaning
+                </h3>
+
+                <p>
+                    Keep the inside of your vehicle clean
+                    and comfortable.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         HOW IT WORKS
+    ========================== -->
+
+    <section class="how-it-works">
+
+
+        <div class="section-heading">
+
+            <p class="section-title">
+                SIMPLE PROCESS
+            </p>
+
+            <h2>
+                How It
+                <span>Works</span>
+            </h2>
+
+        </div>
+
+
+
+        <div class="steps">
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    01
+                </div>
+
+                <h3>
+                    Book
+                </h3>
+
+                <p>
+                    Contact AquaShine and choose
+                    your preferred service.
+                </p>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    02
+                </div>
+
+                <h3>
+                    We Come to you
+                </h3>
+
+                <p>
+                    we travel to your 
+                    convenient location
+                </p>
+
+            </div>
+
+
+
+            <div class="step">
+
+                <div class="step-number">
+                    03
+                </div>
+
+                <h3>
+                    Get It Clean
+                </h3>
+
+                <p>
+                    Relax while we clean your vehicle
+                    and get it shining.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         PRICING
+    ========================== -->
+
+    <section id="pricing" class="pricing">
+
+
+        <div class="section-heading">
+
+            <p class="section-title">
+                OUR PRICES
+            </p>
+
+            <h2>
+                Affordable
+                <span>Pricing</span>
+            </h2>
+
+            <p>
+                Quality service without breaking the bank.
+            </p>
+
+        </div>
+
+
+
+        <div class="price-container">
+
+
+            <div class="price-card">
+
+                <h3>
+                    Basic Wash
+                </h3>
+
+                <div class="price">
+                    M40
+                </div>
+
+                <p>
+                    ✓ Exterior wash
+                </p>
+
+                <p>
+                    ✓ Vehicle rinse
+                </p>
+
+                <p>
+                    ✓ Basic drying
+                </p>
+
+                <a href="#contact" class="btn">
+                    Book Now
+                </a>
+
+            </div>
+
+
+
+            <div class="price-card popular">
+
+                <div class="popular-label">
+                    POPULAR
+                </div>
+
+                <h3>
+                    Full Wash
+                </h3>
+
+                <div class="price">
+                    M50
+                </div>
+
+                <p>
+                    ✓ Exterior wash
+                </p>
+
+                <p>
+                    ✓ Interior cleaning
+                </p>
+
+                <p>
+                    ✓ Complete drying
+                </p>
+
+                <a href="#contact" class="btn">
+                    Book Now
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CALL TO ACTION
+    ========================== -->
+
+    <section class="cta">
+
+        <div>
+
+            <p class="section-title">
+                READY FOR A SHINE?
+            </p>
+
+            <h2>
+                Give Your Car The
+                <span>AquaShine Treatment.</span>
+            </h2>
+
+            <p>
+                Save time. Save effort. Drive clean.
+            </p>
+
+            <a href="#contact" class="btn white-btn">
+                Book Your Wash
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact" class="contact">
+
+
+        <div class="section-heading">
+
+            <p class="section-title">
+                GET IN TOUCH
+            </p>
+
+            <h2>
+                Book Your
+                <span>Wash</span>
+            </h2>
+
+            <p>
+                Contact us today to schedule your car wash.
+            </p>
+
+        </div>
+
+
+
+        <div class="contact-container">
+
+
+            <div class="contact-info">
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        📞
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Phone
+                        </h3>
+
+                        <p>
+                            +266 59497643
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        💬
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            WhatsApp
+                        </h3>
+
+                        <p>
+                            +266 63573429
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        📍
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Location
+                        </h3>
+
+                        <p>
+                            Ha-Abia, Maseru, Lesotho
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="contact-item">
+
+                    <div class="contact-icon">
+                        🕐
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Opening Hours
+                        </h3>
+
+                        <p>
+                            Mon - Sat: 8:00 AM - 5:00 PM
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <div class="booking-box">
+
+                <h3>
+                    Ready to book?
+                </h3>
+
+                <p>
+                    Contact us through WhatsApp or phone
+                    and we'll arrange your car wash.
+                </p>
+
+                <a
+                    href="https://wa.me/26663573429"
+                    class="whatsapp-btn"
+                    target="_blank"
+                >
+                    💬 Message Us on WhatsApp
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-logo">
+            <span>Aqua</span>Shine
+        </div>
+
+        <p>
+            Convenient. Affordable. Clean.
+        </p>
+
+        <p class="copyright">
+            © 2026 AquaShine Car Wash.
+            All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+</html>
